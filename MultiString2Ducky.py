@@ -2,7 +2,11 @@ payload = ""
 
 with open("input.txt","r") as f:
     for line in f.readlines():
-        payload = payload + "STRING " + line + "ENTER\n"
+        for letter in line:
+            if letter == "\n":
+                break
+            payload = payload + "STRING " + letter + "\nDELAY 100\n"
+        payload = payload + "ENTER\n"
         
         
         
